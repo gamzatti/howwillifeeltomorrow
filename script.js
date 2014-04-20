@@ -8,6 +8,7 @@ $(document).ready(function(){
   $('.sleep').val(''); 
   $('#answer').css('display', 'none');
   $('#more-drinks').css('display', 'none');
+  $('#reset').css('display', 'none');
   
 })
 
@@ -26,7 +27,8 @@ $(document).on('click','#go', function(){
   var food = ($('.food').val() - (units/4));
   var sleep = (($('.sleep').val() - 7) - (units/4));
   $('#answer').css('display', 'block');
-  
+  $('#reset').css('display', 'block');
+
   var result = (units - water - food - sleep)
 
   if (result < 3) {
@@ -49,7 +51,7 @@ $(document).on('click','#go', function(){
   }
   
   $('#feeling').html(feeling);
-  $('#result').html('Adjusted score:' + result); 
+//  $('#result').html('Adjusted score:' + result); 
 })
 
 $(document).on('click','#reset', function(){
