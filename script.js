@@ -1,13 +1,16 @@
 $(document).ready(function(){
   $('.quantity1').val(''); 
   $('.quantity2').val(''); 
+  $('.quantity3').val(''); 
   $('.percent1').val(''); 
   $('.percent2').val(''); 
+  $('.percent3').val(''); 
   $('.water').val(''); 
   $('.food').val(''); 
   $('.sleep').val(''); 
   $('#answer').css('display', 'none');
   $('#more-drinks').css('display', 'none');
+  $('#more-drinks2').css('display', 'none');
   $('#reset').css('display', 'none');
   
 })
@@ -16,11 +19,16 @@ $(document).ready(function(){
 $(document).on('click','#more', function(){
   $('#more-drinks').slideToggle();
 });
+$(document).on('click','#more2', function(){
+  $('#more-drinks2').slideToggle();
+});
+
 
 $(document).on('click','#go', function(){
   var units1 = ($('.quantity1').val() * $('.percent1').val() / 1000);
   var units2 = ($('.quantity2').val() * $('.percent2').val() / 1000);
-  var units = units1 + units2;
+  var units3 = ($('.quantity3').val() * $('.percent3').val() / 1000);
+  var units = units1 + units2 + units3;
   var water = $('.water').val();
   var food = $('.food').val();
   var water = ($('.water').val() - (units/2.5));
@@ -51,6 +59,7 @@ $(document).on('click','#go', function(){
   }
   
   $('#feeling').html(feeling);
+  $('#units').html(units);
 //  $('#result').html('Adjusted score:' + result); 
 })
 
